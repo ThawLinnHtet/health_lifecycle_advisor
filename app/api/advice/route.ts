@@ -15,6 +15,7 @@ export async function POST(req: Request) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(body),
+                cache: 'no-store', // Force Vercel to bypass cache
             });
 
             if (!response.ok) {
