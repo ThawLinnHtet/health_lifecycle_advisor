@@ -50,7 +50,7 @@ handle_advice_request(Request) :-
         true
     ;   % Handle actual POST request
         memberchk(method(post), Request)
-    ->  http_read_json_dict(Request, JSONIn),
+    ->  http_read_json_dict(Request, JSONIn, [value_string_as(atom)]),
         % format(user_error, 'Received Payload: ~p~n', [JSONIn]),
         
         % Delegate to knowledge base
