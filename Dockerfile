@@ -9,5 +9,5 @@ COPY prolog/ ./prolog/
 # Expose port 8000 for the API
 EXPOSE 8000
 
-# Start the SWI-Prolog HTTP server
-CMD ["swipl", "-s", "prolog/server.pl", "-g", "server(8000), thread_get_message(_)."]
+# Start the SWI-Prolog HTTP server securely binding to the Render PORT
+CMD ["swipl", "-s", "prolog/server.pl", "-g", "start_server, thread_get_message(_)."]

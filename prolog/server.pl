@@ -1,6 +1,7 @@
 :- encoding(utf8).
 :- module(advisor_server, [
     server/1,
+    start_server/0,
     test_analysis/0
 ]).
 
@@ -19,6 +20,14 @@
 server(Port) :-
     http_server(http_dispatch, [port(Port)]),
     format('Starting Health Advisor Prolog Engine on port ~w~n', [Port]).
+
+% Start server reading from PORT environment variable (for Render/Heroku)
+start_server :-
+    (   getenv('PORT', PortAtom)
+    ->  atom_number(PortAtom, Port)
+    ;   Port = 8000
+    ),
+    server(Port).
 
 % Define the /advice API endpoint
 :- http_handler(root(advice), handle_advice_request, []).
