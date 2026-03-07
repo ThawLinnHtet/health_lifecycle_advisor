@@ -3,9 +3,31 @@ import { AdvisorForm } from "@/components/AdvisorForm";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black selection:bg-emerald-500/30 text-white flex flex-col relative overflow-hidden">
-      {/* Background Gradients */}
+      {/* ── Animated Background ─────────────────────────────────── */}
+      {/* Primary glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 via-emerald-800/20 to-transparent blur-[100px] rounded-full mix-blend-screen" />
+      </div>
+      {/* Secondary subtle glow */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] opacity-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-tl from-cyan-500/40 via-teal-800/20 to-transparent blur-[120px] rounded-full mix-blend-screen" />
+      </div>
+
+      {/* Floating Particles (CSS-only) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        {[...Array(12)].map((_, i) => (
+          <div key={i}
+            className="absolute rounded-full bg-emerald-400/20 animate-float"
+            style={{
+              width: `${4 + (i % 4) * 3}px`,
+              height: `${4 + (i % 4) * 3}px`,
+              left: `${8 + (i * 7.5) % 85}%`,
+              top: `${10 + (i * 13) % 80}%`,
+              animationDelay: `${i * 0.7}s`,
+              animationDuration: `${6 + (i % 5) * 2}s`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="relative z-10 flex flex-col flex-1 items-center justify-center p-6 md:p-12 lg:p-24 w-full">
@@ -22,6 +44,24 @@ export default function Home() {
             <p className="max-w-[600px] text-zinc-400 md:text-xl text-lg font-light">
               Experience an intelligent advisor that adapts to your unique lifecycle stage, delivering precise, actionable insights.
             </p>
+
+            {/* ── Live Stats Bar ─────────────────────────────────── */}
+            <div className="flex items-center gap-6 md:gap-8 text-sm text-zinc-500 pt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 font-semibold text-lg">6</span>
+                <span>Life Stages</span>
+              </div>
+              <div className="h-4 w-px bg-zinc-800" />
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 font-semibold text-lg">30+</span>
+                <span>Rules</span>
+              </div>
+              <div className="h-4 w-px bg-zinc-800" />
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 font-semibold text-lg">100%</span>
+                <span>Personalised</span>
+              </div>
+            </div>
           </div>
 
           <AdvisorForm />
@@ -31,7 +71,7 @@ export default function Home() {
 
       {/* Footer */}
       <div className="relative z-10 py-6 text-center text-zinc-600 text-sm">
-        Aura Diagnostics &copy; 2024
+        Aura Diagnostics &copy; 2026
       </div>
     </main>
   );
