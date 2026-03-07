@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:all": "start \"SWI-Prolog Engine\" cmd /c \"swipl -s prolog/server.pl -g \\\"server(8000), thread_get_message(_).\\\"\" && next dev",
+    "dev:prolog": "start-prolog.bat",
+    "dev:all": "start \"SWI-Prolog Engine\" cmd /c start-prolog.bat && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -15,6 +16,7 @@
     "@radix-ui/react-radio-group": "^1.3.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "jspdf": "^4.2.0",
     "lucide-react": "^0.575.0",
     "next": "16.1.6",
     "radix-ui": "^1.4.3",

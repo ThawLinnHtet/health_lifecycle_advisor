@@ -68,11 +68,18 @@ handle_advice_request(Request) :-
 % Local Testing Helper
 %======================================================================
 test_analysis :-
+    % FIX: Use 'sedentary' (matches UI value), added gender/weight/height/goals/symptoms
     TestProfile = _{
         age: 28,
-        activityLevel: 'light',
+        gender: 'male',
+        weight: 85,
+        height: 175,
+        activityLevel: 'sedentary',
+        dietType: 'high_sugar',
         sleepHours: 5,
-        stressLevel: 8
+        stressLevel: 8,
+        goals: ['weight_loss', 'reduce_stress'],
+        symptoms: ['fatigue', 'poor_concentration', 'headaches']
     },
     analyze_profile(TestProfile, Result),
     % pretty output

@@ -1,0 +1,3 @@
+@echo off
+echo Starting SWI-Prolog Health Advisor Engine on port 8000...
+"C:\Program Files\swipl\bin\swipl.exe" -s prolog/server.pl -g "start_server, thread_get_message(_)."
