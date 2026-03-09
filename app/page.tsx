@@ -39,29 +39,14 @@ export default function Home() {
               Powered by SWI-Prolog Engine
             </div>
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
-              Unlock Your <br className="hidden md:block" /> Health Potential
+              Health And LifeStyle <br className="hidden md:block" /> Advisor
             </h1>
             <p className="max-w-[600px] text-zinc-400 md:text-xl text-lg font-light">
               Experience an intelligent advisor that adapts to your unique lifecycle stage, delivering precise, actionable insights.
             </p>
 
             {/* ── Live Stats Bar ─────────────────────────────────── */}
-            <div className="flex items-center gap-6 md:gap-8 text-sm text-zinc-500 pt-2">
-              {/* <div className="flex items-center gap-2">
-                <span className="text-emerald-400 font-semibold text-lg">6</span>
-                <span>Life Stages</span>
-              </div> */}
-              {/* <div className="h-4 w-px bg-zinc-800" /> */}
-              <div className="flex items-center gap-2">
-                <span className="text-emerald-400 font-semibold text-lg">30+</span>
-                <span>Rules</span>
-              </div>
-              <div className="h-4 w-px bg-zinc-800" />
-              <div className="flex items-center gap-2">
-                <span className="text-emerald-400 font-semibold text-lg">100%</span>
-                <span>Personalised</span>
-              </div>
-            </div>
+
           </div>
 
           <AdvisorForm />

@@ -182,7 +182,7 @@ export function AdvisorForm() {
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema) as any,
-        defaultValues: { age: 25, gender: undefined, height: 170, weight: 70, activityLevel: "", dietType: "", sleepHours: 7, stressLevel: 5, goals: [], symptoms: [] },
+        defaultValues: { age: undefined, gender: undefined, height: undefined, weight: undefined, activityLevel: "", dietType: "", sleepHours: 7, stressLevel: 5, goals: [], symptoms: [] },
     });
 
     async function goNext() {
@@ -286,7 +286,7 @@ export function AdvisorForm() {
                     <CardTitle className="text-3xl font-semibold tracking-tight text-white">Lifestyle Profile</CardTitle>
                 </div>
                 <CardDescription className="text-zinc-400">
-                    Complete 4 sections for your AI-driven health analysis.
+                    Complete 4 sections for your health analysis.
                 </CardDescription>
 
                 {/* Progress Bar */}
@@ -377,11 +377,13 @@ export function AdvisorForm() {
 function Step1({ form }: { form: any }) {
     return (
         <div className="space-y-6">
-            <h3 className="text-xl font-medium text-emerald-400 border-b border-white/10 pb-2">1. Basic Information</h3>
+            <h3 className="text-xl font-medium text-emerald-400 border-b border-white/10 pb-2 flex items-center gap-2">
+                <span>{STEP_TITLES[0].icon}</span>{STEP_TITLES[0].num}. {STEP_TITLES[0].title}
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField control={form.control} name="age" render={({ field }: any) => (
                     <FormItem><FormLabel className="text-zinc-300">Age</FormLabel><FormControl>
-                        <Input type="number" placeholder="25" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} />
+                        <Input type="number" placeholder="e.g. 25" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} value={field.value ?? ""} />
                     </FormControl><FormMessage className="text-red-400" /></FormItem>
                 )} />
                 <FormField control={form.control} name="gender" render={({ field }: any) => (
@@ -396,12 +398,12 @@ function Step1({ form }: { form: any }) {
                 )} />
                 <FormField control={form.control} name="height" render={({ field }: any) => (
                     <FormItem><FormLabel className="text-zinc-300">Height (cm)</FormLabel><FormControl>
-                        <Input type="number" placeholder="170" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} />
+                        <Input type="number" placeholder="e.g. 170" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} value={field.value ?? ""} />
                     </FormControl><FormMessage className="text-red-400" /></FormItem>
                 )} />
                 <FormField control={form.control} name="weight" render={({ field }: any) => (
                     <FormItem><FormLabel className="text-zinc-300">Weight (kg)</FormLabel><FormControl>
-                        <Input type="number" placeholder="70" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} />
+                        <Input type="number" placeholder="e.g. 70" className="bg-zinc-900/50 border-zinc-800 text-white focus-visible:ring-emerald-500/50" {...field} value={field.value ?? ""} />
                     </FormControl><FormMessage className="text-red-400" /></FormItem>
                 )} />
             </div>
@@ -412,7 +414,9 @@ function Step1({ form }: { form: any }) {
 function Step2({ form }: { form: any }) {
     return (
         <div className="space-y-6">
-            <h3 className="text-xl font-medium text-emerald-400 border-b border-white/10 pb-2">2. Lifestyle Factors</h3>
+            <h3 className="text-xl font-medium text-emerald-400 border-b border-white/10 pb-2 flex items-center gap-2">
+                <span>{STEP_TITLES[1].icon}</span> {STEP_TITLES[1].num}. {STEP_TITLES[1].title}
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField control={form.control} name="activityLevel" render={({ field }: any) => (
                     <FormItem><FormLabel className="text-zinc-300 flex items-center gap-1.5"><Activity className="w-4 h-4 text-emerald-400" /> Activity Level</FormLabel>
@@ -461,8 +465,10 @@ function Step3({ form }: { form: any }) {
     return (
         <div className="space-y-6">
             <div className="border-b border-white/10 pb-2">
-                <h3 className="text-xl font-medium text-emerald-400">3. Health Goals</h3>
-                <p className="text-sm text-zinc-500 pt-1">Select all that apply.</p>
+                <h3 className="text-xl font-medium text-emerald-400 flex items-center gap-2">
+                    <span>{STEP_TITLES[2].icon}</span> {STEP_TITLES[2].num}. {STEP_TITLES[2].title}
+                </h3>
+                <p className="text-sm text-zinc-500 pt-1">Select any current goals</p>
             </div>
             <FormField control={form.control} name="goals" render={() => (
                 <FormItem>
@@ -490,7 +496,9 @@ function Step4({ form }: { form: any }) {
     return (
         <div className="space-y-6">
             <div className="border-b border-white/10 pb-2">
-                <h3 className="text-xl font-medium text-emerald-400">4. Symptoms (Optional)</h3>
+                <h3 className="text-xl font-medium text-emerald-400 flex items-center gap-2">
+                    <span>{STEP_TITLES[3].icon}</span> {STEP_TITLES[3].num}. {STEP_TITLES[3].title} (Optional)
+                </h3>
                 <p className="text-sm text-zinc-500 pt-1">Select any current symptoms.</p>
             </div>
             <FormField control={form.control} name="symptoms" render={() => (
