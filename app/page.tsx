@@ -47,11 +47,11 @@ export default function Home() {
 
             {/* ── Live Stats Bar ─────────────────────────────────── */}
             <div className="flex items-center gap-6 md:gap-8 text-sm text-zinc-500 pt-2">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <span className="text-emerald-400 font-semibold text-lg">6</span>
                 <span>Life Stages</span>
-              </div>
-              <div className="h-4 w-px bg-zinc-800" />
+              </div> */}
+              {/* <div className="h-4 w-px bg-zinc-800" /> */}
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400 font-semibold text-lg">30+</span>
                 <span>Rules</span>
